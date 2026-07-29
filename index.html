@@ -286,17 +286,11 @@ Nube de puntos 3D fotogramétrica
 
 </div>
 
-
-
-
-
-
-
 <div id="about-climbers">
 
 
 <h3>
-VISOR WEB 3D CLIMBERS
+VISOR WEB 3D - CLIMBERS
 </h3>
 
 
@@ -305,13 +299,11 @@ consulta y análisis de información
 geoespacial tridimensional.<br><br>
 
 
-Diseñada para aplicaciones de ingeniería,
-minería, topografía, monitoreo e inspecciones.<br><br>
+Desarrollo e implementación de plataforma
+para visualización de información 3D.<br><br>
 
 
-<b>Desarrollo:</b><br>
-
-Juan Lizana<br>
+<b>Juan Lizana</b><br>
 
 Ingeniero Geomensor<br><br>
 
@@ -319,9 +311,14 @@ Ingeniero Geomensor<br><br>
 <b>Climbers SPA</b><br><br>
 
 
-<b>Soporte técnico:</b><br>
+<b>Contacto:</b><br>
 
-jltopo57@gmail.com
+jlizana@climbers.cl<br><br>
+
+
+<b>Web:</b><br>
+
+www.climbers.cl
 
 
 </div>
@@ -340,7 +337,7 @@ style="background-image:url('./build/potree/resources/images/background.jpg');">
 
 
 <button id="btn-about-climbers">
-Acerca del visor
+Acerca de
 </button>
 <div id="potree_sidebar_container"></div>
 
@@ -399,17 +396,22 @@ viewer.loadGUI(() => {
 
     viewer.setLanguage('es');
 
-    // Mostrar menú principal
     $("#menu_tools").show();
     $("#menu_clipping").show();
 
-    // Mantener paneles abiertos
     $("#menu_tools").next().show();
     $("#menu_clipping").next().show();
 
-    // Ocultar solo estos
     $("#menu_appearance").hide();
     $("#menu_scene").hide();
+
+
+    // Ocultar Acerca de Potree
+    setTimeout(() => {
+
+        $("#menu_about").parent().hide();
+
+    }, 1000);
 
 });
 
