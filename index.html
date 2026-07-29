@@ -388,12 +388,12 @@ viewer.loadGUI(() => {
     $("#menu_appearance").hide();
     $("#menu_scene").hide();
 
-    // Ocultar Acerca de Potree
-    setTimeout(() => {
+    // Ocultar Acerca de Potree sin romper GUI
+setTimeout(() => {
 
-        $("#menu_about").parent().hide();
+    $("#menu_about").hide();
 
-    }, 500);
+}, 500);
 
 });
 
