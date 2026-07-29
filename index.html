@@ -84,7 +84,7 @@
 
 	left:20px;
 
-	bottom:20px;
+	bottom:70px;
 
 	width:260px;
 
@@ -104,7 +104,7 @@
 
 	z-index:9999;
 
-	display:block;
+	display:none;
 
 }
 
@@ -130,11 +130,13 @@
 
 }
 
-#btn-about-climbers {
+#about-climbers {
 
 	position:absolute;
+
 	left:20px;
-	bottom:20px;
+
+	bottom:60px;
 
 	z-index:10000;
 
@@ -396,22 +398,30 @@ viewer.loadGUI(() => {
 
     viewer.setLanguage('es');
 
-    $("#menu_tools").show();
-    $("#menu_clipping").show();
 
+    // Mantener herramientas abiertas
+    $("#menu_tools").show();
     $("#menu_tools").next().show();
+
+
+    // Mantener recorte abierto
+    $("#menu_clipping").show();
     $("#menu_clipping").next().show();
 
+
+    // Ocultar elementos Potree no utilizados
     $("#menu_appearance").hide();
     $("#menu_scene").hide();
 
 
-    // Ocultar Acerca de Potree
+    // Ocultar solamente Acerca de Potree
     setTimeout(() => {
 
+        $("#menu_about").hide();
         $("#menu_about").parent().hide();
 
     }, 1000);
+
 
 });
 
