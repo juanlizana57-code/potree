@@ -380,14 +380,35 @@ viewer.loadGUI(() => {
 viewer.setLanguage('es');
 
 
+viewer.loadGUI(() => {
+
+
+viewer.setLanguage('es');
+
+
+// Mantener herramientas abiertas
 $("#menu_tools").next().show();
 
+
+// Mantener recorte abierto
 $("#menu_clipping").next().show();
 
 
+// Ocultar solo elementos que no queremos
 $("#menu_appearance").hide();
 
 $("#menu_scene").hide();
+
+
+// Ocultar Acerca de Potree completamente
+setTimeout(() => {
+
+    $("#menu_about").parent().hide();
+
+}, 500);
+
+
+});
 
 
 // Ocultar sección Acerca de Potree
