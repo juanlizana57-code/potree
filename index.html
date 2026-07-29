@@ -389,40 +389,27 @@ viewer.loadGUI(() => {
     viewer.setLanguage('es');
 
 
-    // Mantener herramientas visibles
-
+    // Abrir herramientas
     $("#menu_tools").show();
-
     $("#menu_tools").next().show();
 
 
-
-    // Mantener recorte visible
-
+    // Abrir recorte
     $("#menu_clipping").show();
-
     $("#menu_clipping").next().show();
 
 
-
-    // Ocultar paneles que no usamos
-
+    // Ocultar solamente lo innecesario
     $("#menu_appearance").hide();
-
     $("#menu_scene").hide();
 
 
-
-    // Ocultar solamente Acerca de Potree
-
+    // Ocultar Acerca de Potree solamente
     setTimeout(() => {
-
-        $("#menu_about").hide();
 
         $("#menu_about").parent().hide();
 
-    },1000);
-
+    },1500);
 
 
 });
