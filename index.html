@@ -130,7 +130,26 @@
 
 }
 
+#btn-about-climbers {
 
+	position:absolute;
+	left:20px;
+	bottom:20px;
+
+	z-index:10000;
+
+	background:#0057b8;
+	color:white;
+
+	border:none;
+
+	padding:8px 12px;
+
+	border-radius:6px;
+
+	cursor:pointer;
+
+}
 
 
 /* MOVIL */
@@ -320,7 +339,9 @@ style="background-image:url('./build/potree/resources/images/background.jpg');">
 </div>
 
 
-
+<button id="btn-about-climbers">
+Acerca del visor
+</button>
 <div id="potree_sidebar_container"></div>
 
 
@@ -441,15 +462,18 @@ scene.addPointCloud(pointcloud);
 
 viewer.fitToScreen();
 
-
-
 }
-
-
 
 
 );
 
+
+// Botón Acerca del visor Climbers
+$("#btn-about-climbers").click(function(){
+
+    $("#about-climbers").toggle();
+
+});
 
 
 </script>
