@@ -1,9 +1,3 @@
-Guarda este contenido como:
-
-index.html
-
-reemplazando el actual.
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,7 +5,7 @@ reemplazando el actual.
 
 <meta charset="utf-8">
 
-<title>STRACON - Visualizador de Nube de Puntos</title>
+<title>VISOR WEB 3D CLIMBERS</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -39,6 +33,8 @@ reemplazando el actual.
 
 
 
+/* INFORMACION PROYECTO */
+
 #info-proyecto {
 
 	position:absolute;
@@ -46,7 +42,7 @@ reemplazando el actual.
 	right:20px;
 	bottom:20px;
 
-	width:260px;
+	width:270px;
 
 	background:rgba(0,0,0,0.65);
 
@@ -78,6 +74,50 @@ reemplazando el actual.
 
 
 
+
+/* ACERCA DEL VISOR */
+
+#about-climbers {
+
+	position:absolute;
+
+	left:20px;
+
+	bottom:20px;
+
+	width:260px;
+
+	background:rgba(0,0,0,0.65);
+
+	color:white;
+
+	padding:15px;
+
+	border-radius:8px;
+
+	font-family:Arial, Helvetica, sans-serif;
+
+	font-size:13px;
+
+	line-height:1.5;
+
+	z-index:9999;
+
+	display:none;
+
+}
+
+
+#about-climbers h3 {
+
+	margin-top:0;
+
+	font-size:16px;
+
+}
+
+
+
 /* OCULTAR CREDITOS POTREE */
 
 .potree_sidebar_brand,
@@ -91,14 +131,15 @@ reemplazando el actual.
 
 
 
-/* RESPONSIVE MOVIL */
+
+/* MOVIL */
 
 @media(max-width:600px){
 
 
 #logo-climbers{
 
-	width:120px;
+	width:110px;
 
 	top:10px;
 
@@ -110,9 +151,9 @@ reemplazando el actual.
 
 #info-proyecto{
 
-	width:85%;
+	width:calc(100% - 40px);
 
-	right:7%;
+	right:20px;
 
 	bottom:10px;
 
@@ -131,6 +172,21 @@ reemplazando el actual.
 }
 
 
+
+#about-climbers{
+
+	width:calc(100% - 40px);
+
+	left:20px;
+
+	bottom:10px;
+
+	font-size:11px;
+
+}
+
+
+
 }
 
 
@@ -143,6 +199,7 @@ reemplazando el actual.
 
 
 <body>
+
 
 
 <script src="./libs/jquery/jquery-3.1.1.min.js"></script>
@@ -163,13 +220,17 @@ reemplazando el actual.
 
 
 
+
 <div class="potree_container" 
 style="position:absolute; width:100%; height:100%; left:0px; top:0px;">
 
 
 
+
+
 <img id="logo-climbers" 
 src="./resources/images/Azul Imagotipo.png">
+
 
 
 
@@ -188,9 +249,11 @@ Información del Proyecto
 STRACON<br><br>
 
 
-<b>Visualización:</b><br>
+
+<b>Tipo de información:</b><br>
 
 Nube de puntos 3D fotogramétrica<br><br>
+
 
 
 <b>Fecha levantamiento:</b><br>
@@ -198,12 +261,14 @@ Nube de puntos 3D fotogramétrica<br><br>
 02-06-2026<br><br>
 
 
+
 <b>Procesamiento:</b><br>
 
 Climbers SPA<br><br>
 
 
-<b>Desarrollo y procesamiento:</b><br>
+
+<b>Desarrollo:</b><br>
 
 Juan Lizana<br>
 
@@ -211,6 +276,49 @@ Ingeniero Geomensor
 
 
 </div>
+
+
+
+
+
+
+
+<div id="about-climbers">
+
+
+<h3>
+VISOR WEB 3D CLIMBERS
+</h3>
+
+
+Herramienta digital para visualización,
+consulta y análisis de información
+geoespacial tridimensional.<br><br>
+
+
+Diseñada para aplicaciones de ingeniería,
+minería, topografía, monitoreo e inspecciones.<br><br>
+
+
+<b>Desarrollo:</b><br>
+
+Juan Lizana<br>
+
+Ingeniero Geomensor<br><br>
+
+
+<b>Climbers SPA</b><br><br>
+
+
+<b>Soporte técnico:</b><br>
+
+jltopo57@gmail.com
+
+
+</div>
+
+
+
 
 
 
@@ -234,6 +342,8 @@ style="background-image:url('./build/potree/resources/images/background.jpg');">
 
 
 
+
+
 <script type="module">
 
 
@@ -245,15 +355,30 @@ document.getElementById("potree_render_area")
 
 
 
+
 viewer.setEDLEnabled(false);
 
 viewer.setFOV(60);
 
-viewer.setPointBudget(1000000);
+
+
+if(window.innerWidth <= 600){
+
+	viewer.setPointBudget(300000);
+
+}else{
+
+	viewer.setPointBudget(1000000);
+
+}
+
+
 
 viewer.loadSettingsFromURL();
 
 viewer.setBackground("skybox");
+
+
 
 
 
@@ -286,14 +411,20 @@ $("#menu_scene").hide();
 
 
 
+
+
 Potree.loadPointCloud(
 
+
 "https://huggingface.co/datasets/juanlizana57/stracon-pointcloud/resolve/main/metadata.json",
+
 
 "STRACON",
 
 
+
 e => {
+
 
 
 let scene = viewer.scene;
@@ -317,6 +448,7 @@ material.shape = Potree.PointShape.SQUARE;
 
 
 
+
 scene.addPointCloud(pointcloud);
 
 
@@ -326,6 +458,7 @@ viewer.fitToScreen();
 
 
 }
+
 
 
 
