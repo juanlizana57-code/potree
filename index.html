@@ -20,6 +20,8 @@
 <style>
 
 
+/* LOGO CLIMBERS */
+
 #logo-climbers {
 
 	position:absolute;
@@ -45,21 +47,21 @@
 	right:20px;
 	bottom:20px;
 
-	width:220px;
+	width:260px;
 
 	background:rgba(0,0,0,0.65);
 
 	color:white;
 
-	padding:10px;
+	padding:15px;
 
 	border-radius:8px;
 
 	font-family:Arial, Helvetica, sans-serif;
 
-	font-size:12px;
+	font-size:13px;
 
-	line-height:1.3;
+	line-height:1.5;
 
 	z-index:9999;
 
@@ -68,15 +70,15 @@
 
 #info-proyecto h3 {
 
-	margin:0 0 6px 0;
+	margin:0 0 10px 0;
 
-	font-size:14px;
+	font-size:16px;
 
 }
 
 
 
-/* ACERCA DE CLIMBERS */
+/* PANEL ACERCA */
 
 #about-climbers {
 
@@ -119,7 +121,7 @@
 
 
 
-/* BOTON ACERCA DE */
+/* BOTON ACERCA */
 
 #btn-about-climbers {
 
@@ -160,15 +162,14 @@
 
 
 
-
-/* MOVIL */
+/* RESPONSIVE */
 
 @media(max-width:600px){
 
 
-#logo-climbers{
+#logo-climbers {
 
-	width:110px;
+	width:120px;
 
 	top:10px;
 
@@ -178,13 +179,15 @@
 
 
 
-#info-proyecto{
+#info-proyecto {
 
-	width:calc(100% - 40px);
+	width:85%;
 
-	right:20px;
+	right:7%;
 
 	bottom:10px;
+
+	padding:10px;
 
 	font-size:11px;
 
@@ -192,11 +195,19 @@
 
 
 
-#about-climbers{
+#info-proyecto h3 {
 
-	width:calc(100% - 40px);
+	font-size:13px;
 
-	left:20px;
+}
+
+
+
+#about-climbers {
+
+	width:85%;
+
+	left:7%;
 
 	bottom:60px;
 
@@ -206,7 +217,7 @@
 
 
 
-#btn-about-climbers{
+#btn-about-climbers {
 
 	left:20px;
 
@@ -218,11 +229,11 @@
 }
 
 
+
 </style>
 
 
 </head>
-
 
 <body>
 
@@ -245,13 +256,15 @@
 
 
 
-<div class="potree_container" 
+<div class="potree_container"
 style="position:absolute; width:100%; height:100%; left:0px; top:0px;">
 
 
 
-<img id="logo-climbers" 
+<img id="logo-climbers"
 src="./resources/images/Azul Imagotipo.png">
+
+
 
 
 
@@ -284,6 +297,8 @@ Nube de puntos 3D fotogramétrica
 
 
 </div>
+
+
 
 
 
@@ -326,25 +341,28 @@ www.climbers.cl
 
 
 
-<div id="potree_render_area" 
+
+<div id="potree_render_area"
 style="background-image:url('./build/potree/resources/images/background.jpg');">
 
 
 </div>
 
 
+
 <button id="btn-about-climbers">
+
 Acerca de
+
 </button>
+
 
 
 <div id="potree_sidebar_container"></div>
 
 
-</div>
 
 </div>
-
 
 <script type="module">
 
@@ -383,41 +401,31 @@ viewer.setBackground("skybox");
 
 
 
+/*
+=====================================
+CARGA GUI POTREE
+MANTENIDA DESDE BACKUP FUNCIONAL
+=====================================
+*/
+
+
 viewer.loadGUI(() => {
 
 
-    viewer.setLanguage('es');
+viewer.setLanguage('es');
 
 
-    // Esperar carga completa de GUI Potree
-    setTimeout(() => {
+
+$("#menu_tools").next().show();
+
+$("#menu_clipping").next().show();
 
 
-        // Herramientas
-        $("#menu_tools").show();
-        $("#menu_tools").next().show();
 
+$("#menu_appearance").hide();
 
-        // Recorte
-        $("#menu_clipping").show();
-        $("#menu_clipping").next().show();
+$("#menu_scene").hide();
 
-
-        // Abrir acordeones correctamente
-        $("#menu_tools").click();
-        $("#menu_clipping").click();
-
-
-        // Ocultar solamente estos
-        $("#menu_appearance").hide();
-        $("#menu_scene").hide();
-
-
-        // Ocultar Acerca de Potree
-        $("#menu_about").parent().hide();
-
-
-    },1000);
 
 
 });
@@ -426,6 +434,11 @@ viewer.loadGUI(() => {
 
 
 
+/*
+=====================================
+CARGA NUBE HUGGING FACE
+=====================================
+*/
 
 
 Potree.loadPointCloud(
@@ -437,9 +450,7 @@ Potree.loadPointCloud(
 "STRACON",
 
 
-
 e => {
-
 
 
 let scene = viewer.scene;
@@ -473,6 +484,8 @@ viewer.fitToScreen();
 
 }
 
+
+
 );
 
 
@@ -480,12 +493,17 @@ viewer.fitToScreen();
 
 
 
-// Botón Acerca de Climbers
+/*
+=====================================
+BOTON ACERCA CLIMBERS
+=====================================
+*/
+
 
 $("#btn-about-climbers").click(function(){
 
 
-    $("#about-climbers").toggle();
+$("#about-climbers").toggle();
 
 
 });
