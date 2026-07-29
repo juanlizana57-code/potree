@@ -389,27 +389,35 @@ viewer.loadGUI(() => {
     viewer.setLanguage('es');
 
 
-    // Abrir herramientas
-    $("#menu_tools").show();
-    $("#menu_tools").next().show();
-
-
-    // Abrir recorte
-    $("#menu_clipping").show();
-    $("#menu_clipping").next().show();
-
-
-    // Ocultar solamente lo innecesario
-    $("#menu_appearance").hide();
-    $("#menu_scene").hide();
-
-
-    // Ocultar Acerca de Potree solamente
+    // Esperar carga completa de GUI Potree
     setTimeout(() => {
 
+
+        // Herramientas
+        $("#menu_tools").show();
+        $("#menu_tools").next().show();
+
+
+        // Recorte
+        $("#menu_clipping").show();
+        $("#menu_clipping").next().show();
+
+
+        // Abrir acordeones correctamente
+        $("#menu_tools").click();
+        $("#menu_clipping").click();
+
+
+        // Ocultar solamente estos
+        $("#menu_appearance").hide();
+        $("#menu_scene").hide();
+
+
+        // Ocultar Acerca de Potree
         $("#menu_about").parent().hide();
 
-    },1500);
+
+    },1000);
 
 
 });
