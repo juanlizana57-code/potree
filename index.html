@@ -186,7 +186,7 @@
 
 	right:7%;
 
-	bottom:10px;
+	bottom:80px;
 
 	padding:10px;
 
@@ -426,7 +426,11 @@ $("#menu_appearance").hide();
 $("#menu_scene").hide();
 
 
-viewer.toggleSidebar();
+if(window.innerWidth > 600){
+
+    viewer.toggleSidebar();
+
+}
 
 
 $(".pv_about").hide();
