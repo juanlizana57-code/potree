@@ -411,25 +411,27 @@ MANTENIDA DESDE BACKUP FUNCIONAL
 
 viewer.loadGUI(() => {
 
+    viewer.setLanguage('es');
 
-viewer.setLanguage('es');
+    $("#menu_tools").next().show();
+    $("#menu_clipping").next().show();
 
+    $("#menu_appearance").hide();
+    $("#menu_scene").hide();
 
-$("#menu_tools").next().show();
+    if(window.innerWidth > 600){
+        viewer.toggleSidebar();
+    }
 
-$("#menu_clipping").next().show();
+    setTimeout(() => {
 
+        $("#menu_about").hide();
+        $("#menu_about").parent().hide();
+        $(".pv_about").hide();
 
-$("#menu_appearance").hide();
-
-$("#menu_scene").hide();
-
-
-viewer.toggleSidebar();
-
+    }, 500);
 
 });
-
 
 
 
