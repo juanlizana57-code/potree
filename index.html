@@ -160,7 +160,11 @@
 
 }
 
+#btn-info-proyecto {
 
+	display:none;
+
+}
 
 /* RESPONSIVE */
 
@@ -177,9 +181,37 @@
 
 }
 
+#btn-info-proyecto {
 
+	display:block;
+
+	position:absolute;
+
+	right:10px;
+
+	bottom:20px;
+
+	z-index:10002;
+
+	background:rgba(0,87,184,0.75);
+
+	color:white;
+
+	border:none;
+
+	padding:8px 14px;
+
+	border-radius:6px;
+
+	font-size:12px;
+
+	cursor:pointer;
+
+}
 
 #info-proyecto {
+
+	display:none;
 
 	width:85%;
 
@@ -190,6 +222,13 @@
 	padding:10px;
 
 	font-size:11px;
+
+}
+
+
+#info-proyecto.activo {
+
+	display:block;
 
 }
 
@@ -342,7 +381,9 @@ src="./resources/images/Azul Imagotipo.png">
 
 
 
-
+<button id="btn-info-proyecto">
+    📄 Información del Proyecto
+</button>
 
 <div id="info-proyecto">
 
@@ -605,6 +646,24 @@ setTimeout(function(){
     document.getElementById("climbers_loading").style.display = "none";
 
 },5000);
+
+</script>
+
+<script>
+
+const btnInfoProyecto = document.getElementById("btn-info-proyecto");
+const infoProyecto = document.getElementById("info-proyecto");
+
+
+if(btnInfoProyecto){
+
+    btnInfoProyecto.addEventListener("click", function(){
+
+        infoProyecto.classList.toggle("activo");
+
+    });
+
+}
 
 </script>
 
