@@ -232,6 +232,82 @@
 
 </style>
 
+<style>
+
+#climbers_loading {
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:#000000;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+color:white;
+
+font-family:Arial, sans-serif;
+
+}
+
+
+#climbers_loading img {
+
+width:220px;
+margin-bottom:20px;
+
+}
+
+
+#climbers_loading h2 {
+
+font-size:28px;
+
+}
+
+
+#climbers_loading p {
+
+font-size:16px;
+
+}
+
+
+.loader {
+
+border:5px solid #333;
+
+border-top:5px solid #00AEEF;
+
+border-radius:50%;
+
+width:50px;
+
+height:50px;
+
+animation:spin 1s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+100% {
+
+transform:rotate(360deg);
+
+}
+
+}
+
+</style>
 
 </head>
 
@@ -340,7 +416,17 @@ www.climbers.cl
 </div>
 
 
+<div id="climbers_loading">
 
+    <img src="./resources/images/logo_climbers.png">
+
+    <h2>VISOR WEB 3D CLIMBERS</h2>
+
+    <p>Cargando nube de puntos...</p>
+
+    <div class="loader"></div>
+
+</div>
 
 <div id="potree_render_area">
 
